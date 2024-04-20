@@ -79,4 +79,4 @@ function Products (props) {
   )
 }
 
-export defaul
+export default Products
