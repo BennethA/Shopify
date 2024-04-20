@@ -1,0 +1,132 @@
+.shoppingCart {
+  padding: 10px 20px;
+  position: relative;
+}
+
+.shopLink {
+  display: flex;
+}
+
+.shopLink a{
+  padding: 5px;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  background: linear-gradient(to bottom right, #9261a0ad, #3a1744);
+}
+
+.cart {
+  margin: 10px 0;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  color: rgb(0, 255, 0);
+  background: linear-gradient(to bottom right, #462d4d, #1a0420);
+}
+
+.addedProducts {
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+@media (max-width: 1000px) {
+  .addedProducts {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 750px) {
+  .addedProducts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 510px) {
+  .cartProducts {
+    width: 210px;
+  }
+}
+
+@media (max-width: 400px) {
+  .addedProducts {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cartProducts {
+  padding: 5px;
+  border-radius: 5px;
+  background: linear-gradient(to bottom right, #a16fafc5, #1a0420a2);
+}
+
+.cartProduct {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartProduct .image {
+  height: 90px;
+  width: 200px;
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartProduct .image img{
+  height: 100%;
+}
+
+.cartProductDesc {
+  gap: 10px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.remove {
+  display: flex;
+  font-size: 30px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove:hover {
+  color: red;
+}
+
+.cartProductPrice {
+  margin-top: 10px;
+  font-weight: bold;
+  color: rgba(219, 219, 219, 0.568);
+}
+
+.amtAndPurchase {
+  display: flex;
+  margin: 15px 0;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 8px;
+  justify-content: space-between;
+  color: rgba(219, 219, 219, 0.568);
+}
+
+.purchase {
+  padding: 5px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  background: linear-gradient(to bottom right, #9261a0ad, #3a1744);
+}
+
+.purchase:active {
+  background-color: rgb(17, 85, 17);
+}
