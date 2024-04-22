@@ -13,6 +13,7 @@ import ShoppingCart from './ShoppingCart.jsx'
 import RegisterPage from './RegisterPage.jsx';
 import { useState } from 'react';
 import Contacts from './Contacts.jsx';
+import ProfileInfo from './ProfileInfo.jsx';
 
 function App() {
   let [cart, setCart] = useState([])
@@ -21,9 +22,6 @@ function App() {
   const [toPurchase, setToPurchase] = useState(false)
   const [searchResults, setSearchResults] = useState('')
   const [selectedCategory, setSelectedCategory] = useState("All")
-
-
-  const searchValue = '';
   
   const addToCart = (product) => {
     setCart([...cart, product])
@@ -57,9 +55,10 @@ function App() {
     <>
     <Router>
       <Topbar 
-        cart={cart}
         loggedIn={loggedIn}
+        handleLogIn={handleLogIn}
         handleSearch={handleSearch}
+        handleToProfile={handleToProfile}
       />
       <Routes>
         <Route 
@@ -72,6 +71,7 @@ function App() {
           path='/shop' 
           element={
             <Shop 
+              cart={cart}
               loggedIn={loggedIn}
               addToCart={addToCart}
               selectedCategory={selectedCategory}
@@ -116,13 +116,9 @@ function App() {
           }
         />
         <Route 
-          path='/shoppingCart' 
+          path='/profileInfo' 
           element={
-            <ShoppingCart 
-              cart={cart}
-              handleDel={handleDel} 
-              toPurchase={toPurchase} 
-              handleToPurchase={handleToPurchase} 
+            <ProfileInfo
             />
           }
         />

@@ -4,7 +4,6 @@ import {
 } from 'react-router-dom';
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { FaCartShopping } from 'react-icons/fa6'
 import userProfile from './images/user.png';
 
 function Topbar (props) {
@@ -23,47 +22,38 @@ function Topbar (props) {
   }
   
   return (
-    <header className="main">
-      <div className="main1">
-        <div className="name">
-          <Link to='/'>
-            SHOPILY
-          </Link>
+    <header>
+      <Link to='/' className="name">
+        SHOPILY
+      </Link>
+      <div>
+      {
+        location.pathname === '/shop' &&
+        <div className="inputSection">
+          <input 
+          type="search" 
+          value={searchQuery}
+          placeholder='Search for product type'
+          onChange={handleInputChange}/>
+          <button className="searchBtn" onClick={handleInputClick}>
+            <FaSearch/>
+          </button>
         </div>
-        {
-          location.pathname === '/shop' &&
-          <div className="inputSection">
-            <input 
-            type="search" 
-            value={searchQuery} 
-            className="inputName" 
-            placeholder='Search for product type'
-            onChange={handleInputChange}/>
-            <button className="searchBtn" onClick={handleInputClick}>
-              <FaSearch/>
-            </button>
-          </div>
-        }
-        {
-          location.pathname !== '/shop' &&
-          <div className='toShop'><Link to="/shop">Shop</Link></div>
-        }
-        <div className="cartDisplay">
-          {
-            props.loggedIn 
-            ? <Link to='/shoppingCart'>
-                <div>Cart<FaCartShopping/></div>
-                {props.cart.length}
-              </Link>
-            : ''
-          }
-        </div>
+      }
       </div>
       <button className="user">
         {
           props.loggedIn 
-          ? <img src={userImg} alt="" /> 
-          : <Link to="/loginPage">Log In</Link>
+          ? <details>
+              <summary>
+                <img src={userImg} alt=""/> 
+              </summary>
+              <ul>
+                  <Link to="/profileInfo" className='toProfile'>Profile</Link>
+                <li onClick={props.handleLogIn}>Log Out</li>
+              </ul>
+            </details>
+          : <Link to="/loginPage" className='toLogin'>Log In</Link>
         }
       </button>
     </header>

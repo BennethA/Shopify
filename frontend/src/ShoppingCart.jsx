@@ -18,24 +18,22 @@ function ShoppingCart(props) {
         <div className="addedProducts">
           {props.cart.map((product, productIndex) => {
             return (
-              <>
-                <div className="cartProducts" key={product}>
-                  <div className="cartProduct">
-                    <div className="image">
-                      <img src={product.image_url} alt="" />
-                    </div>
-                    <div className="cartProductDesc">
-                      {product.name}
-                      <div className='remove' onClick={() => props.handleDel(product, productIndex)}>
-                        <FaXmark/>
-                      </div>
-                    </div>
-                    <div className="cartProductPrice">
-                      ${product.price}
+              <div className="cartProducts" key={product}>
+                <div className="cartProduct">
+                  <div className="image">
+                    <img src={product.image_url} alt="" />
+                  </div>
+                  <div className="cartProductDesc">
+                    {product.name}
+                    <div className='remove' onClick={() => props.handleDel(product, productIndex)}>
+                      <FaXmark/>
                     </div>
                   </div>
+                  <div className="cartProductPrice">
+                    ${product.price}
+                  </div>
                 </div>
-              </>
+              </div>
             )
           })}
         </div>
