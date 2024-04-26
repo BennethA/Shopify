@@ -1,22 +1,26 @@
+import './App.css'
+import axios from "axios"
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
-import './App.css'
 import Home from './Home.jsx';
 import Shop from './Shop.jsx';
 import About from './About.jsx';
-import Topbar from './Topbar.jsx';
-import LoginPage from './LoginPage.jsx';
-import ShoppingCart from './ShoppingCart.jsx'
-import RegisterPage from './RegisterPage.jsx';
 import { useState } from 'react';
+import Topbar from './Topbar.jsx';
+import Profile from './Profile.jsx';
 import Contacts from './Contacts.jsx';
-import ProfileInfo from './ProfileInfo.jsx';
+import LoginPage from './LoginPage.jsx';
+import ShoppingCart from './ShoppingCart.jsx';
+import RegisterPage from './RegisterPage.jsx';
 
 function App() {
   let [cart, setCart] = useState([])
+  const [email, setEmail] = useState('')
+  const [userName, setUserName] = useState('')
+  const [password, setPassword] = useState('')
   const [loggedIn, setLoggedIn] = useState(false) 
   const [toProfile, setToProfile] = useState(false)
   const [toPurchase, setToPurchase] = useState(false)
@@ -24,7 +28,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("All")
   
   const addToCart = (product) => {
-    setCart([...cart, product])
+    setCart(prevCart => [...cart, product])
   }
 
   const handleDel =(product, productIndex) => {
@@ -32,9 +36,9 @@ function App() {
     setCart([...cart])
   }
 
-  const handleLogIn = (e) => {
+  const handleLogOut = (e) => {
     e.preventDefault()
-    setLoggedIn(!loggedIn)
+    setLoggedIn(false)
   }
   
   const handleToProfile = () => {
@@ -46,17 +50,16 @@ function App() {
   }
 
   const handleSearch = (searchValue) => {
-    setSearchResults(searchValue)
     setSelectedCategory(searchValue)
     setSearchResults('')
   }
   
   return (
-    <>
     <Router>
       <Topbar 
+        userName={userName}
         loggedIn={loggedIn}
-        handleLogIn={handleLogIn}
+        handleLogOut={handleLogOut}
         handleSearch={handleSearch}
         handleToProfile={handleToProfile}
       />
@@ -94,31 +97,33 @@ function App() {
           path='/loginPage' 
           element={
             <LoginPage 
+            email={email}
+            password={password}
             loggedIn={loggedIn}
-            handleLogIn={handleLogIn}/>
+            setEmail={setEmail}
+            setLoggedIn={setLoggedIn}
+            setPassword={setPassword}
+            />
           }
         />
         <Route 
           path='/registerPage' 
           element={
-            <RegisterPage />
-          }
-        />
-        <Route 
-          path='/shoppingCart' 
-          element={
-            <ShoppingCart 
-              cart={cart}
-              handleDel={handleDel} 
-              toPurchase={toPurchase} 
-              handleToPurchase={handleToPurchase} 
+            <RegisterPage 
+              email={email}
+              password={password}
+              setEmail={setEmail}
+              userName={userName}
+              setLoggedIn={setLoggedIn}
+              setPassword={setPassword}
+              setUserName={setUserName}
             />
           }
         />
         <Route 
-          path='/profileInfo' 
+          path='/profile' 
           element={
-            <ProfileInfo
+            <Profile
             />
           }
         />
@@ -143,7 +148,6 @@ function App() {
         />
       </Routes>
     </Router>
-    </>
   )
 }
 

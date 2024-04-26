@@ -1,4 +1,4 @@
-import Footer from './Footer'
+import Footer from './Footer';
 import Products from './Products'
 import { Link } from 'react-router-dom';
 import { FaCartShopping } from 'react-icons/fa6'

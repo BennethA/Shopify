@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom'
-import './App.css'
 import Footer from './Footer'
+import { Link } from 'react-router-dom'
 
 function Home(props) { 
 
@@ -11,15 +10,13 @@ function Home(props) {
           <div className="homeFirst">
             <div className="welcomeMsg">
               <div className="openMsg">
-                <p>
-                  DISCOVER IT ALL ON <span className="shopily">SHOPILY:</span> FROM CLOTHING TO JEWELRY AND MORE!
-                </p>
+                DISCOVER IT ALL CLOTHING TO JEWELRY AND MORE ON<span className='shopily'>SHOPILY</span>
               </div>
               <div className="description">
                 Shopily is like having your favorite store in your pocket and on the internet just like Amazon. <br /> It brings the world of online shopping right to your fingertips, making it easier than ever to find and purchase the things you love.
               </div>
               <button className="shopNowBtn">
-                <Link to="/shop" className='bn632-hov bn20' onClick={props.handleInShop}>SHOP NOW</Link>
+                <Link to="/shop" onClick={props.handleInShop}>SHOP NOW</Link>
               </button>
             </div>
           </div>

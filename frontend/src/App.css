@@ -10,9 +10,21 @@ a{
 }
 
 body {
-  top: 60px;
   position: relative;
-  background-color: #1a0420;
+  top: calc(60px - 3px);
+  background: linear-gradient(
+    130deg, 
+    #1a0420, 
+    #3e0a4d,
+    #1a0420, 
+    #3e0a4d,
+    #1a0420,
+    #3e0a4d,
+    #1a0420, 
+    #3e0a4d,
+    #1a0420,
+    #3e0a4d,
+    #1a0420);
 }
 
 button {
@@ -27,9 +39,10 @@ button:hover {
 }
 
 header {
-  top: 0;
   left: 0;
   right: 0;
+  top: -3px;
+  gap: 10px;
   height: 60px;
   z-index: 100;
   display: grid;
@@ -37,6 +50,7 @@ header {
   padding: 5px 10px;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 2px solid #730292;
   grid-template-columns: 1fr 2fr 1fr;
   background-color: rgb(26, 4, 32);
 }
@@ -44,32 +58,29 @@ header {
 .name {
   height: 100%;
   display: flex;
+  color: white;
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
   align-items: center;
   text-decoration: none;
-  color: rgb(0, 255, 0);
   justify-content: center;
 }
 
+.name:hover, .name:active {
+  color: #c800ff;
+}
+
 .inputSection{
-  flex: 1;
-  width: 100%;
-  flex-grow: 1;
   display: flex;
-  min-width: 0px;
   align-items: center;
   justify-content: center;
 }
 
 .inputSection input {
-  flex: 1;
   border: none;
   height: 40px;
   outline: none;
-  max-width: 350px;
-  margin-right: -1px;
   padding-left: 10px;
   border-radius: 8px 0 0 8px;
 }
@@ -77,83 +88,73 @@ header {
 .searchBtn {
   height: 40px;
   padding: 10px;
-  border-left: 0;
   color: white;
   font-size: 16px;
   border-radius: 0 8px 8px 0;
   background-color: rgb(0, 255, 0);
-  border-top: 1px solid rgb(0, 255, 0);
-  border-right: 1px solid rgb(0, 255, 0);
-  border-bottom: 1px solid rgb(0, 255, 0);
 }
 
-.searchBtn:active {
-  background-color: rgb(17, 85, 17);
+.searchBtn:hover, .searchBtn:active {
+  background-color: #730292;
 }
 
 .user {
+  height: 100%;
   display: flex;
   background: none;
   align-items: center;
   justify-content: center;
 }
 
-.user img {
-  width: 40px;
-  height: 40px;
-}
-
-.user img:hover {
-  opacity: 0.6;
-}
-
-.user img:active {
-  opacity: 0.6;
-}
-
 .toLogin {
   height: 100%;
-  padding: 10px;
+}
+
+.toLogin a {
+  width: 100%;
+  height: 100%;
   display: flex;
   color: white;
   font-weight: bold;
-  border-radius: 5px;
   align-items: center;
-  text-decoration: none;
   justify-content: center;
 }
 
-details {
-  color: rgb(26, 4, 32);
+.toLogin a:hover, .toLogin a:active  {
+  color: #c800ff;
+}
+
+summary {
+  color: white;
+  font-weight: bold;
+}
+
+summary:hover, summary:focus {
+  color: #730292;
 }
 
 details ul {
-  gap: 5px;
-  padding: 20px;
   display: flex;
   position: fixed;
+  overflow: hidden;
   border-radius: 5px;
   flex-direction: column;
   background-color: #3e0a4d;
 }
 
-details ul li{
-  padding: 5px;
+details ul a{
+  transition: 0.5s;
+  padding: 15px 20px;
   display: flex;
   color: white;
+  font-weight: bold;
   text-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
 }
 
-.toProfile {
-  color: white;
-}
-
-details ul li:hover, .toProfile:hover{
-  color: rgb(0, 250, 0);
-}
-
-details ul li:active, .toProfile:hover{
-  color: rgb(0, 250, 0);
+details ul a:hover, details ul a:active{
+  background-color: #1a0420
 }
 
 .home {
@@ -161,7 +162,7 @@ details ul li:active, .toProfile:hover{
   padding: 35px 5%;
   object-fit: cover;
   background-size: cover;
-  background-position: center;
+  background-position: right;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-image: url('images/background-img1.jpg');
@@ -172,6 +173,8 @@ details ul li:active, .toProfile:hover{
 }
 
 .openMsg {
+  display: flex;
+  flex-wrap: wrap;
   font-size: 35px;
   line-height: 50px;
   font-weight: bold;
@@ -179,7 +182,17 @@ details ul li:active, .toProfile:hover{
 }
 
 .shopily {
-  color: rgb(0, 255, 0);
+  background: linear-gradient(
+    to bottom right,
+    #8000ff,
+    #1a0420,
+    #3e0a4d,
+    #1a0420,
+    #8000ff);
+  color: transparent;
+  background-clip: text;
+  background-size: 1000%;
+  animation: glowingbn5 20s linear infinite;
 }
 
 .description {
@@ -188,72 +201,19 @@ details ul li:active, .toProfile:hover{
 }
 
 .shopNowBtn {
-  border: none;
+  padding: 3px;
   border-radius: 5px;
-}
-
-.bn632-hov {
-  background-size: 300%;
-  transition:  all .4s ease-in;
-  -o-transition:  all .4s ease-in;
-  -moz-transition: all .4s ease-in;
-  -webkit-transition:  all .4s ease-in;
-}
-
-.bn632-hov.bn20 {
-  background-image: linear-gradient(
-    to right,
-    #3e0a4d, white, #1a0420
-  );
-} 
-
-.bn632-hov:hover {
-  background-position: 150%;
-  transition:  all .4s ease-in;
-  -o-transition:  all .4s ease-in;
-  -moz-transition: all .4s ease-in;
-  -webkit-transition:  all .4s ease-in;
-
-}
-/* <a href="/" class="bn5">Hover</a>
-.bn5 {
-  padding: 0.6em 2em;
-  border: none;
-  outline: none;
-  color: rgb(255, 255, 255);
-  background: #111;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-}
-
-.bn5:before {
-  content: "";
   background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
+    to right,
+    #c800ff,
+    #730292,
+    #3e0a4d,
+    #730292,
+    #8000ff,
+    #3e0a4d,
+    #c800ff);
+  background-size: 1000%;
   animation: glowingbn5 20s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 10px;
 }
 
 @keyframes glowingbn5 {
@@ -268,30 +228,6 @@ details ul li:active, .toProfile:hover{
   }
 }
 
-.bn5:active {
-  color: #000;
-}
-
-.bn5:active:after {
-  background: transparent;
-}
-
-.bn5:hover:before {
-  opacity: 1;
-}
-
-.bn5:after {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #191919;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-} */
-
 .shopNowBtn a{
   display: flex;
   padding: 10px;
@@ -299,10 +235,11 @@ details ul li:active, .toProfile:hover{
   font-weight: bold;
   border-radius: 5px;
   text-decoration: none;
+  background-color: #1a0420;
 }
 
-.shopNowBtn a:active{
-  background-color: #1a0420;
+.shopNowBtn a:hover, .shopNowBtn a:active{
+  background: none;
 }
 
 .help {
@@ -330,7 +267,7 @@ details ul li:active, .toProfile:hover{
 }
 
 .shop {
-  padding: 15px;
+  padding: 15px 5%;
   object-fit: cover;
   background-size: cover;
   background-position: center;
@@ -340,7 +277,7 @@ details ul li:active, .toProfile:hover{
 }
 
 .cartDisplay {
-  right: 15px;
+  right: 5px;
   display: flex;
   position: fixed;
   padding: 5px 10px;
@@ -430,7 +367,7 @@ details ul li:active, .toProfile:hover{
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: rgb(26, 4, 32);
+  background-color: rgb(17, 85, 17);
 }
 
 .products {
@@ -441,13 +378,9 @@ details ul li:active, .toProfile:hover{
 
 .productDesc {
   max-width: 250px;
-}
-
-.productDesc {
   padding: 5px 20px;
   border: 1px solid;
   border-radius: 10px;
-  backdrop-filter: blur(5px);
 }
 
 .productImage{
@@ -459,8 +392,8 @@ details ul li:active, .toProfile:hover{
 }
 
 .productImage img{
-  height: 100%;
   width: auto;
+  height: 100%;
 }
 
 .productDesc h3{
@@ -482,7 +415,7 @@ details ul li:active, .toProfile:hover{
 }
 
 .productPrice {
-  font-size: 160%;
+  font-size: 150%;
   font-weight: bold;
 }
 
@@ -513,28 +446,36 @@ details ul li:active, .toProfile:hover{
 }
 
 footer {
-  padding: 30px;
+  gap: 10px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(26, 4, 32);
+  padding: 20px 5%;
+  background-color: #1a0420;
+  justify-content: space-around;
+  border-top: 2px solid #730292;
 }
 
 .reachUs {
+  gap: 15px;
   display: flex;
   color: white;
-  font-weight: bold;
-  margin-bottom: 10px;
-  align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 
+.reachUs div {
+  gap: 10px;
+  display: flex;
+}
+
 .reachUs div a{
-  margin-left: 5px;
+  gap: 2px;
+  display: flex;
+  align-items: center;
   color: whitesmoke;
   text-decoration: none;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .reachUsOne, .reachUsTwo, .reachUsThree {
@@ -543,33 +484,44 @@ footer {
   justify-content: center;
 }
 
-.reachUsOne div, .reachUsTwo div{
-  display: flex;
-  margin-top: 10px;
-  margin-right: 10px;
-  align-items: center;
-  flex-direction: column;
-}
-
-.reachUsOne div:hover, .reachUsTwo div:hover, .reachUsThree div:hover{
-  color: rgb(0, 250, 0);
-}
-
-.reachUsThree {
-  gap: 5px;
-  display: flex;
-  margin-top: 10px;
+.reachUsOne a:hover, .reachUsTwo a:hover, .reachUsOne a:active, .reachUsTwo a:active{
+  color: #730292;
 }
 
 iframe {
-  width: 100%;
   border: none;
   border-radius: 10px;
 }
 
+.about {
+  padding: 35px 5%;
+}
+
+.about h2{
+  color: white;
+}
+
+.contact {
+  padding: 35px 5%;
+  height: 100dvh;
+}
+
+.iframe {
+  padding: 35px 5%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a0420;
+}
+
+.iframe iframe{
+  width: 100%;
+}
+
 .formBox {
   display: flex;
-  height: 100dvh;
+  padding: 35px 5%;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -581,15 +533,30 @@ iframe {
 }
 
 .formBox form {
+  gap: 10px;
   padding: 30px;
+  display: flex;
   border-radius: 10px;
-  background: linear-gradient(to bottom right, #1a0420, #3e0a4d, rgb(22, 22, 22));
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom right, 
+    #1a0420, 
+    #3e0a4d,
+    #1a0420, 
+    #3e0a4d,
+    #1a0420,
+    #3e0a4d,
+    #1a0420, 
+    #3e0a4d,
+    #1a0420);
 }
 
 .formBox label {
   gap: 5px ;
-  color: white;
   display: flex;
+  color: white;
   font-weight: bold;
   flex-direction: column;
 }
@@ -598,14 +565,6 @@ iframe {
   color: red;
   font-size: small;
   font-weight: lighter;
-}
-
-.formBox form {
-  gap: 10px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .formBox form input{
@@ -617,23 +576,23 @@ iframe {
 }
 
 .formBox form button {
-  padding: 7px;
+  padding: 10px;
   color: white;
   font-weight: bold;
   border-radius: 4px;
-  background-color: rgb(0, 250, 0);
+  background-color: #730292;
 }
 
-.formBox form button:hover {
-  background-color: rgb(17, 85, 17);
+.formBox form button:hover, .formBox form button:active {
+  background-color: #3e0a4d;
 }
 
 .toRegister, .toLogin {
   cursor: pointer;
-  color: rgb(0, 255, 0);
+  color: rgb(255, 255, 255);
 }
 
-.toRegister:hover, .toLogin:hover {
+.toRegister:hover, .toLogin:hover, .toRegister:active, .toLogin:active {
   color: rgb(0, 0, 0);
 }
 

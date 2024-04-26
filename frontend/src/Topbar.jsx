@@ -4,11 +4,9 @@ import {
 } from 'react-router-dom';
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import userProfile from './images/user.png';
 
 function Topbar (props) {
   const location = useLocation()
-  const userImg = userProfile;
   const [searchQuery, setSearchQuery] = useState('')
 
   const handleInputChange = (event) => {
@@ -27,33 +25,41 @@ function Topbar (props) {
         SHOPILY
       </Link>
       <div>
-      {
-        location.pathname === '/shop' &&
-        <div className="inputSection">
-          <input 
-          type="search" 
-          value={searchQuery}
-          placeholder='Search for product type'
-          onChange={handleInputChange}/>
-          <button className="searchBtn" onClick={handleInputClick}>
-            <FaSearch/>
-          </button>
-        </div>
-      }
+        {
+          location.pathname === '/shop' &&
+          <div className="inputSection">
+            <div>
+              <input 
+              type="search" 
+              value={searchQuery}
+              placeholder='Search for product type'
+              onChange={handleInputChange}/>
+            </div>
+            <button className="searchBtn" onClick={handleInputClick}>
+              <FaSearch/>
+            </button>
+          </div>
+        }
       </div>
       <button className="user">
         {
           props.loggedIn 
           ? <details>
               <summary>
-                <img src={userImg} alt=""/> 
+                {props.userName}'s Account
               </summary>
               <ul>
-                  <Link to="/profileInfo" className='toProfile'>Profile</Link>
-                <li onClick={props.handleLogIn}>Log Out</li>
+                <li><Link to="/profile">Profile</Link></li>
+                <li onClick={props.handleLogOut}>
+                  <Link to="/home">
+                    Log Out
+                  </Link>
+                </li>
               </ul>
             </details>
-          : <Link to="/loginPage" className='toLogin'>Log In</Link>
+          : <div className='toLogin'>
+              <Link to="/loginPage">Log In</Link>
+          </div>
         }
       </button>
     </header>

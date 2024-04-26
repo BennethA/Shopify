@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import PRODUCTS from './Products.json'
+import { Link } from 'react-router-dom'
 import { FaCartPlus } from 'react-icons/fa6'
 
 function Products (props) {
@@ -8,39 +8,39 @@ function Products (props) {
   const filteredProducts = props.selectedCategory === 'All' ? PRODUCTS : PRODUCTS.filter(product => product.category == props.selectedCategory)
   return (
     <>
-    <div className="productsSection">
-      <div className="topic">
-        <h4>OUR PRODUCTS</h4>
-        <div className="underlineMain">
-          <hr className="underline"></hr>
+      <div className="productsSection">
+        <div className="topic">
+          <h4>OUR PRODUCTS</h4>
+          <div className="underlineMain">
+            <hr className="underline"></hr>
+          </div>
         </div>
-      </div>
-      <div className="productsNav">
-        {
-          categories.map(category => {
-            return (
-              <button key={category}
-                className={`category ${props.selectedCategory === category ? "active" : "notActive"}`}
-                onClick={() =>props.setSelectedCategory(category)}>{category}
-              </button>
-            )
+        <div className="productsNav">
+          {
+            categories.map(category => {
+              return (
+                <button key={category}
+                  className={`category ${props.selectedCategory === category ? "active" : "notActive"}`}
+                  onClick={() =>props.setSelectedCategory(category)}>{category}
+                </button>
+              )
 
-          })
-        }
-      </div>
-      <div className="products"> 
-      {
-        filteredProducts.length === 0 
-        ? <div className='noItems'>
-            <b>No Product</b>
-            <div>
-              <small>
-                note: Make sure the words in the search bar is correct
-              </small>
-            </div>
-          </div> 
-        : filteredProducts.map((product) => {
-            return (
+            })
+          }
+        </div>
+        <div className="products"> 
+        {
+          filteredProducts.length === 0 
+          ? <div className='noItems'>
+              <b>No Product</b>
+              <div>
+                <small>
+                  note: Make sure the words in the search bar is correct
+                </small>
+              </div>
+            </div> 
+          : filteredProducts.map((product) => {
+              return (
                 <div className="productDesc" key={product.id}>
                   <div className="productImage">
                     <img src={product.image_url} alt="" loading='lazy'/>
@@ -70,11 +70,11 @@ function Products (props) {
                       </Link>
                   }
                 </div> 
-            )
-          })
-        }
+              )
+            })
+          }
+        </div>
       </div>
-    </div>
     </>
   )
 }

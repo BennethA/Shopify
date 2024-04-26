@@ -1,4 +1,5 @@
 import './ShoppingCart.css'
+import Footer from './Footer'
 import Purchase from './Purchase'
 import { Link } from 'react-router-dom'
 import { FaArrowLeft, FaXmark } from 'react-icons/fa6'
@@ -47,6 +48,7 @@ function ShoppingCart(props) {
       {
         props.toPurchase && <Purchase handleToPurchase={props.handleToPurchase}/>
       }
+      <Footer/>
     </>
   )
 }
